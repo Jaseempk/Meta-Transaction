@@ -20,7 +20,7 @@ describe("MetaToken Transfer",()=>{
     const userRandomConractInstance=randomContract.connect(userAddress);
     const mintTx=await userRandomConractInstance.freeMint(TOTAL_SUPPLY);
     await mintTx.wait();
-
+    //giving the TokenSender contract approval spending whole supply of tokens on the behalf of the user
     const approveTxn=await userRandomConractInstance.approve(
       tokenSender.target,
       BigInt("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff")
